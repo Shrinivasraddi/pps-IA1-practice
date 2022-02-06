@@ -1,0 +1,104 @@
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x833: file p2final.c, line 31.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p2final.c:31
+31    a=input();
+(gdb) s
+input () at p2final.c:3
+3   {
+(gdb) n
+5     printf("enter a number\n");
+(gdb) n
+enter a number
+6     scanf("%d",&n);
+(gdb) n
+7
+7     return n;
+(gdb) n
+8   }
+(gdb) p n
+$1 = 7
+(gdb) n
+main () at p2final.c:32
+32    b=input();
+(gdb) s
+input () at p2final.c:3
+3   {
+(gdb) n
+5     printf("enter a number\n");
+(gdb) n
+enter a number
+6     scanf("%d",&n);
+(gdb) n
+8
+7     return n;
+(gdb) n
+8   }
+(gdb) p n
+$2 = 8
+(gdb) n
+main () at p2final.c:33
+33    c=input();
+(gdb) s
+input () at p2final.c:3
+3   {
+(gdb) n
+5     printf("enter a number\n");
+(gdb) n
+enter a number
+6     scanf("%d",&n);
+(gdb) n
+4
+7     return n;
+(gdb) n
+8   }
+(gdb) p n
+$3 = 4
+(gdb) n
+main () at p2final.c:34
+34    largest=cmp(a,b,c);
+(gdb) s
+cmp (a=7, b=8, c=4) at p2final.c:11
+11    if(a>b && a>c)
+(gdb) n
+15    else if(b>c)
+(gdb) n
+17      return b;
+(gdb) n
+23  }
+(gdb) n
+main () at p2final.c:35
+35    output(a,b,c,largest);
+(gdb) s
+output (a=7, b=8, c=4, largest=8) at p2final.c:26
+26   printf("%d is largest among %d,%d and %d\n",largest,a,b,c);
+(gdb) n
+8 is largest among 7,8 and 4
+27  }
+(gdb) p largest
+$4 = 8
+(gdb) n
+main () at p2final.c:36
+36    return 0;
+(gdb) n
+37  }
+(gdb) q

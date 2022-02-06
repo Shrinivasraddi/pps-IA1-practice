@@ -1,0 +1,125 @@
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8ee: file p4final.c, line 37.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p4final.c:37
+37  {
+(gdb) n
+39    n=input_array_size();
+(gdb) s
+input_array_size () at p4final.c:3
+3   {
+(gdb) n
+5     printf("enter the number of numbers to be added\n");
+(gdb) n
+enter the number of numbers to be added
+6     scanf("%d",&n);
+(gdb) n
+3
+7     return n;
+(gdb) n
+8   }
+(gdb) p n
+$1 = 3
+(gdb) n
+main () at p4final.c:40
+40    int a[n];
+(gdb) n
+41    input_array(n,a);
+(gdb) s
+input_array (n=3, a=0x7ffe23aea2a0) at p4final.c:12
+12    printf("enter the number\n");
+(gdb) n
+enter the number
+13    for(i=1;i<=n;i++)
+(gdb) n
+15      scanf("%d",&a[i]);
+(gdb) p i
+$2 = 1
+(gdb) n
+1
+13    for(i=1;i<=n;i++)
+(gdb) n
+15      scanf("%d",&a[i]);
+(gdb) n
+7
+13    for(i=1;i<=n;i++)
+(gdb) n
+15      scanf("%d",&a[i]);
+(gdb) n
+11
+13    for(i=1;i<=n;i++)
+(gdb) n
+17  }
+(gdb) n
+main () at p4final.c:42
+42    sum=sum_n_arrays(n,a);
+(gdb) s
+sum_n_arrays (n=3, a=0x7ffe23aea2a0) at p4final.c:20
+20    int i, sum=0;
+(gdb) n
+21    for(i=1;i<=n;i++)
+(gdb) n
+23      sum=sum + a[i];
+(gdb) n
+21    for(i=1;i<=n;i++)
+(gdb) n
+23      sum=sum + a[i];
+(gdb) n
+21    for(i=1;i<=n;i++)
+(gdb) p i
+$3 = 2
+(gdb) p sum
+$4 = 8
+(gdb) n
+23      sum=sum + a[i];
+(gdb) n
+21    for(i=1;i<=n;i++)
+(gdb) n
+25    return sum;
+(gdb) n
+26  }
+(gdb) p i
+$5 = 4
+(gdb) n
+main () at p4final.c:43
+43    out_put(n,a,sum);
+(gdb) s
+out_put (n=3, a=0x7ffe23aea2a0, sum=19) at p4final.c:30
+30    for(i=1;i<n;i++)
+(gdb) n
+32      printf("%d+",a[i]);
+(gdb) n
+30    for(i=1;i<n;i++)
+(gdb) n
+32      printf("%d+",a[i]);
+(gdb) n
+30    for(i=1;i<n;i++)
+(gdb) n
+34    printf("%d is %d\n",a[i],sum);
+(gdb) n
+1+7+11 is 19
+35  }
+(gdb) n
+main () at p4final.c:44
+44    return 0;
+(gdb) n
+45  }(gdb)
