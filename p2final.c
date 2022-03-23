@@ -23,7 +23,7 @@ int cmp(int a,int b,int c)
 }
 void output(int a,int b,int c,int largest)
 {
- printf("%d is largest among %d,%d and %d\n",largest,a,b,c);
+ printf("%d is largest\n",largest,a,b,c);
 }
 int main()
 {
